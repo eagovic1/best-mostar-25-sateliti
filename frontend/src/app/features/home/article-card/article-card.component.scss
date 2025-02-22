@@ -1,0 +1,49 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 280px;
+    height: 300px;
+    border-radius: 10px;
+    align-items: center;
+    .blog-image-container {
+        width: 280px;
+        height:150px;
+        border-radius: 8px;
+        display: flex;
+        background-color: pink;
+        background: url("https://bosniatravel.info/wp-content/uploads/2018/08/Travnik_Panorama_2-Copy.jpg");
+        background-size: 300%;
+    }
+    .blog-data {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+        width: 100%;
+        .blog-title {
+            margin-top: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            height: 60px;
+        }
+        .blog-category {
+            margin-top: 10px;
+            color: rgb(111, 111, 255);
+        }
+        .bottom {
+            display: flex;
+            margin-top: 22px;
+            width: 100%;
+            justify-content: space-between;
+            .blog-author {
+                font-size: 14px;
+            }
+            .blog-date {
+                font-size: 14px;
+            }
+        }
+    }
+
+}
+
