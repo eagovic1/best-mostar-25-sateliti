@@ -80,6 +80,38 @@ exports.delete = async (req, res) => {
     }
 };
 
+exports.numOfEventsByVolunteer = async (req, res) => {
+    try {
+        // count number of events for each user
+        const users = await User.findAll();
+        const events = await db.Event.findAll();
+        const eventVolunteers = await db.EventVolunteer.findAll();
+        const numOfEvents = users.map(user => {
+            const userEvents = eventVolunteers.filter(eventVolunteer => eventVolunteer.userId === user.id && eventVolunteer.confirmed === true);
+            return { user: user.username, numOfEvents: userEvents.length };
+        });
+
+        res.status(200).json({ numOfEvents });
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error", error: error.message });
+    }
+}
+
+exports.streakCounterByVolunteer = async (req, res) => {
+    try {
+        // count streak for each user
+        const users = await User.findAll();
+
+        let streaks = users.map(async user => {
+            ({ user: user, streak: user.streakCounter })
+        });
+
+        res.status(200).json({ streaks });
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error", error: error.message });
+    }
+}
+
 exports.monthlyReset = async (req, res) => {
     try {
         const users = await User.findAll();

@@ -19,4 +19,8 @@ router.put("/:id", volunteerController.edit);
  */
 router.delete("/:id", volunteerController.delete);
 
+router.get("/events/all", volunteerController.numOfEventsByVolunteer);
+
+router.get("/streak/all", volunteerController.streakCounterByVolunteer);
+
 module.exports = router;
