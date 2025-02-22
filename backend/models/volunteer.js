@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
-    password:{
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -29,7 +29,15 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
-  },{
-     freezeTableName: true
+    city: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+  }, {
+    freezeTableName: true
   });
 };
