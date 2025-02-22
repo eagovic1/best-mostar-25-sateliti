@@ -3,9 +3,12 @@ const Event = db.Event;
 
 exports.addEvent = async (req, res) => {
   try {
-    const { company_id, location, name, description } = req.body;
+    const { company_id, location, name, description, event_status, minimum_signed, maximum_signed, picture_url, emission_value, date } = req.body;
 
-    const event = await Event.create({ company_id, location, name, description, date: new Date() });
+    const event = await Event.create({
+      company_id, location, name, description, date: date, event_status: "active",
+      minimum_signed: minimum_signed, maximum_signed: maximum_signed, picture_url: picture_url, emission_value: emission_value
+    });
 
     // create Prize objects from list of strings
     const Prizes = db.Prizes;
