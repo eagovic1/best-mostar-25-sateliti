@@ -34,7 +34,7 @@ exports.login = async (req, res) => {
             return res.status(400).json({ message: "Wrong password!" });
         }
 
-        res.status(200).json({ message: "Logged in successfully!"});
+        res.status(200).json({ message: "Logged in successfully!" });
     } catch (error) {
         res.status(500).json({ message: "Internal server error", error: error.message });
     }
@@ -79,3 +79,27 @@ exports.delete = async (req, res) => {
         res.status(500).json({ message: "Internal server error", error: error.message });
     }
 };
+
+exports.monthlyReset = async (req, res) => {
+    try {
+        const users = await User.findAll();
+        users.forEach(async user => {
+            const lastMonth = new Date();
+            lastMonth.setMonth(lastMonth.getMonth() - 1);
+            const events = await user.getEvents({ where: { date: { [db.Sequelize.Op.gte]: lastMonth } } });
+            events = events.filter(async event => {
+                const eventVolunteer = await db.EventVolunteer.findOne({ where: { eventId: event.id, userId: user.id } });
+                return eventVolunteer.length > 0;
+            }
+            );
+            if (events.length === 0) {
+                user.streakCounter = 0;
+            }
+            user.save();
+        });
+
+        res.status(200).json({ message: "Monthly reset completed!" });
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error", error: error.message });
+    }
+}
