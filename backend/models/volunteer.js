@@ -16,9 +16,14 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
+    password:{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     streak_count: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 0,
     },
     image_url: {
       type: DataTypes.STRING,

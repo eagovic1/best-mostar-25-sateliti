@@ -34,3 +34,5 @@ router.post("/:id/participants/remove", eventController.removeParticipant);
  * Route for confirming event pariticipation
  */
 router.post("/:id/participants/confirm", eventController.confirmParticipant);
+
+module.exports = router;

@@ -5,7 +5,7 @@ exports.addEvent = async (req, res) => {
   try {
     const { company_id, location, name, description } = req.body;
 
-    const event = await Event.create({ company_id, location, name, description });
+    const event = await Event.create({ company_id, location, name, description, date: new Date()});
 
     // create Prize objects from list of strings
     const Prizes = db.Prizes;
@@ -103,52 +103,60 @@ exports.removeEvent = async (req, res) => {
 
 exports.addParticipant = async (req, res) => {
   try {
-    const { volunteer_id } = req.body.volunteer_id;
+    const { volunteer_id } = req.body;  // Directly destructure volunteer_id
     const event_id = req.params.id;
 
-    const Event_Volunteer = db.Event_Volunteer;
+    const event_volunteer = db.Event_Volunteer;
 
-    await Event_Volunteer.create({
-      event_id: event_id,
-      volunteer_id: volunteer_id,
+    // Check if the volunteer_id and event_id are provided
+    if (!volunteer_id || !event_id) {
+      return res.status(400).json({ message: "Missing volunteer_id or event_id" });
+    }
+
+    // Add participant to Event_Volunteer table
+    await event_volunteer.create({
+      EventId: event_id,
+      VolunteerId: volunteer_id,
       confirmed: false,
-    })
+    });
+
+    res.status(200).json({ message: "Participant added successfully!" });
 
   } catch (error) {
-    res.status(500).json({ message: "Internal server error: ", error: error.message });
+    res.status(500).json({ message: "Internal server error", error: error.message });
   }
-}
+};
 
 exports.removeParticipant = async (req, res) => {
   try {
-    const { volunteer_id } = req.body.volunteer_id;
+    const { volunteer_id } = req.body;
     const event_id = req.params.id;
 
-    const Event_Volunteer = db.Event_Volunteer;
+    const event_volunteer = db.Event_Volunteer;
 
-    await Event_Volunteer.destroy({
+    await event_volunteer.destroy({
       where: {
-        event_id: event_id,
-        volunteer_id: volunteer_id
+        EventId: event_id,
+        VolunteerId: volunteer_id
       }
     });
 
   } catch (error) {
     res.status(500).json({ message: "Internal server error: ", error: error.message });
   }
-}
+};
 
 exports.confirmParticipant = async (req, res) => {
   try {
-    const { volunteer_id } = req.body.volunteer_id;
+    const { volunteer_id } = req.body;
     const event_id = req.params.id;
 
     const Event_Volunteer = db.Event_Volunteer;
 
     const event_volunteer = await Event_Volunteer.findOne({
       where: {
-        event_id: event_id,
-        volunteer_id: volunteer_id
+        EventId: event_id,
+        VolunuteerId: volunteer_id
       }
     });
 
@@ -162,4 +170,4 @@ exports.confirmParticipant = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Internal server error: ", error: error.message });
   }
-}
+};
