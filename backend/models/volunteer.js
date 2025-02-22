@@ -16,6 +16,14 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
+    streak_count: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },{
      freezeTableName: true
   });
