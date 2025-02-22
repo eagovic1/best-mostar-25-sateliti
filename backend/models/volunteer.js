@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  return sequelize.define("User", {
+  return sequelize.define('Volunteer', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -16,5 +16,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
+  },{
+     freezeTableName: true
   });
 };
