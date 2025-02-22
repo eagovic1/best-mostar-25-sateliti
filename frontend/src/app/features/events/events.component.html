@@ -1,0 +1,41 @@
+<div class="events-menu">
+    <mat-form-field>
+        <mat-label>Time</mat-label>
+        <select matNativeControl >
+          <option value="">Today</option>
+          <option selected value="">This week</option>
+          <option value="">This month</option>
+          <option value="">All</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Location</mat-label>
+        <select matNativeControl >
+          <option value="">1 km</option>
+          <option selected value="">10 km</option>
+          <option value="">100 km</option>
+          <option value="">All</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Event size</mat-label>
+        <select matNativeControl >
+          <option value="">10 people</option>
+          <option value="">50 people</option>
+          <option value="">100 people</option>
+          <option selected value="">All</option>
+        </select>
+      </mat-form-field>
+</div>
+<div class="events-grid">
+    <app-event-card [routerLink] = "['/events/1']"></app-event-card>
+    <app-event-card></app-event-card>
+    <app-event-card></app-event-card>
+    <app-event-card></app-event-card>
+    <app-event-card></app-event-card>
+    <app-event-card></app-event-card>
+    <app-event-card></app-event-card>
+    <app-event-card></app-event-card>
+    <app-event-card></app-event-card>
+    <app-event-card></app-event-card>
+</div>

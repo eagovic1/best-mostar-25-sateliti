@@ -1,0 +1,10 @@
+:host {
+    width: calc(100% - 200px);
+    min-height: calc(100vh - 60px);
+    margin-top: 60px;
+    margin-left: 200px;
+    //background-color: rgb(231, 236, 236);
+    background-color: #c8ffe1;
+    display: flex;
+    flex-direction: column;
+}
