@@ -1,0 +1,33 @@
+<div class="leaderboard-header"></div>
+<div class="leaderboard-global-page">
+    <div class="leaderboard-sidebar"></div>
+    <div class="leaderboard-table">
+        <div class="leaderboard-headrow">
+            <div class="col1">
+                <p>Rank</p>
+            </div>
+            <div class="col2">
+                <p>Member</p>
+            </div>
+            <div class="col3">
+                <p>Points</p>
+            </div>
+        </div>
+        @for (member of members; track $index) {
+            <div class="leaderboard-row">
+                <div class="col1">
+                    <div class="position-div">
+                        <p>{{member.position}}</p>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div class="member-img"></div>
+                    <p class="member-name">{{member.name}}</p>
+                </div>
+                <div class="col3">
+                    <p class="points">{{member.points}}</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
