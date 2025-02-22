@@ -5,10 +5,12 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require('cors');
 const cron = require('node-cron');
+const cors = require('cors');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', routes);
+app.use(cors());
 
 
 //database

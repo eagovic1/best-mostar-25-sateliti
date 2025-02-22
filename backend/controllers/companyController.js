@@ -80,3 +80,7 @@ exports.delete = async (req, res) => {
         res.status(500).json({ message: "Internal server error", error: error.message });
     }
 }
+
+exports.changeEmissionValue = (emmisionValue, companyId) => {
+    Company.update({ current_emission_value: emmisionValue }, { where: { id: companyId } });
+}

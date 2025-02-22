@@ -38,5 +38,9 @@ router.post("/:id/participants/confirm", eventController.confirmParticipant);
  * Route for assigning random prizes to event participants
  */
 router.get("/:id/random-prizes", eventController.assignRandomPrizes);
+/**
+ * Route for changing event status
+ */
+router.put("/:id/status", eventController.changeEventStatus);
 
 module.exports = router;
