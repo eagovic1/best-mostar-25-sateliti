@@ -17,25 +17,15 @@ import { take } from 'rxjs';
   styleUrl: './events.component.scss'
 })
 export class EventsComponent {
-  events: any;
+  events: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private eventService: EventsService) {}
 
-  ngOnInit() {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-
-    this.http.get<any>('http://localhost:3000/api/events', { headers, withCredentials: true })
-   .pipe(take(1))  // Only take the first response
-   .subscribe(
-     (data) => {
-       this.events = data;
-       console.log(data);
-     },
-     (error) => {
-       console.error('Error fetching events', error);
-     }
-   );
+  ngOnInit(): void {
+    this.eventService.getEvents().subscribe((data) => {
+      this.events = data.data;
+      console.log(this.events);
+    },
+    )
   }
 }
