@@ -1,15 +1,22 @@
 <div class="events-menu">
     <mat-form-field>
-        <mat-label>Event category</mat-label>
+        <mat-label>Time</mat-label>
         <select matNativeControl >
-          <option value="">Sport</option>
-          <option value="">Culture</option>
-          <option value="">Art</option>
-          <option value="">Educational</option>
+          <option value="">Today</option>
+          <option value="">This week</option>
+          <option value="">This month</option>
+          <option value="">All</option>
         </select>
       </mat-form-field>
-    <button class="filter">Filter</button>
-    <button class="reset">Reset</button>
+      <mat-form-field>
+        <mat-label>Location</mat-label>
+        <select matNativeControl >
+          <option value="">1 km</option>
+          <option value="">10 km</option>
+          <option value="">100 km</option>
+          <option value="">All</option>
+        </select>
+      </mat-form-field>
 </div>
 <div class="events-grid">
     <app-event-card [routerLink] = "['/events/1']"></app-event-card>

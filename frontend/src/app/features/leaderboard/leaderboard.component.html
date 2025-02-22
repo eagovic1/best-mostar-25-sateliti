@@ -17,7 +17,15 @@
                 placeholder="Select a City" />
         </form>
     -->
-    <p-select [options]="options" [(ngModel)]="selectedOption" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    <!--<p-select [options]="options" [(ngModel)]="selectedOption" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />-->
+        <div class="dropdown">
+            <!--<label for="options">Choose an option:</label>-->
+            <select id="options" [(ngModel)]="selectedOption" name="options">
+            <option *ngFor="let option of options" [value]="option.value">
+                {{ option.label }}
+            </option>
+            </select>
+        </div>
         <div class="organisation-item">
             <p>Isatis Software Solutions</p>
         </div>
