@@ -141,6 +141,8 @@ exports.removeParticipant = async (req, res) => {
       }
     });
 
+    res.status(200).json({ message: "Participant removed successfully!" });
+
   } catch (error) {
     res.status(500).json({ message: "Internal server error: ", error: error.message });
   }
@@ -156,7 +158,7 @@ exports.confirmParticipant = async (req, res) => {
     const event_volunteer = await Event_Volunteer.findOne({
       where: {
         EventId: event_id,
-        VolunuteerId: volunteer_id
+        VolunteerId: volunteer_id
       }
     });
 
@@ -166,6 +168,8 @@ exports.confirmParticipant = async (req, res) => {
 
     event_volunteer.confirmed = true;
     await event_volunteer.save();
+
+    res.status(200).json({ message: "Participant confirmed successfully!" });
 
   } catch (error) {
     res.status(500).json({ message: "Internal server error: ", error: error.message });
