@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
           allowNull: true //ne mora se komentarisati event?
         },
         date:{
-          type: DataTypes.DATETIME,
+          type: DataTypes.DATE,
           allowNull: false,
         }
     },{
