@@ -1,4 +1,6 @@
+<p class="title">Events</p>
 <div class="events-menu">
+  <form [formGroup]="filterForm">
     <mat-form-field>
         <mat-label>Time</mat-label>
         <select matNativeControl >
@@ -26,10 +28,15 @@
           <option selected value="">All</option>
         </select>
       </mat-form-field>
+    </form>
 </div>
+<p class="result-counter">{{ filteredEvents.length }} results:</p>
 <div class="events-grid">
-  @for (event of events; track $index) {
+  @for (event of filteredEvents; track $index) {
     <app-event-card [event]="event" [routerLink]="['/events', event.id]"></app-event-card>
+    <app-event-card [event]="event" [routerLink]="['/events', event.id]"></app-event-card>
+    <app-event-card [event]="event" [routerLink]="['/events', event.id]"></app-event-card>
+
   }
 
 </div>
