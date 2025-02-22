@@ -107,3 +107,30 @@ exports.leaveGroup = async (req, res) => {
     res.status(500).json({ message: "Internal server error", error: error.message });
   }
 }
+
+exports.numOfEventsByGroup = async (req, res) => {
+  try {
+    const groups = await Group.findAll();
+    const group_events = [];
+
+    for (let i = 0; i < groups.length; i++) {
+      const group = groups[i];
+      const group_volunteers = await Group_Volunteer.findAll({ where: { GroupId: group.id } });
+      const group_volunteer_ids = group_volunteers.map(group_volunteer => group_volunteer.volunteer_id);
+      const group_events_count = await db.Event_Volunteer.count({
+        where: {
+          VolunteerId: group_volunteer_ids,
+          confirmed: true
+        },
+        distinct: true,
+        col: 'EventId'
+      });
+      group_events.push({ group: group, num_of_events: group_events_count });
+    }
+
+    return res.status(200).json({ group_events: group_events });
+  }
+  catch (error) {
+    res.status(500).json({ message: "Internal server error", error: error.message });
+  }
+}
