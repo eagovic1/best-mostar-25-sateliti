@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true //ne mora se komentarisati event?
     },
     date: {

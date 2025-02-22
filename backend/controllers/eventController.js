@@ -1,6 +1,9 @@
 const db = require('../config/db');
 const Event = db.Event;
 
+/**
+ * Method to create a new event
+ */
 exports.addEvent = async (req, res) => {
   try {
     const { company_id, location, name, description, event_status, minimum_signed, maximum_signed, picture_url, emission_value, date } = req.body;
@@ -10,7 +13,6 @@ exports.addEvent = async (req, res) => {
       minimum_signed: minimum_signed, maximum_signed: maximum_signed, picture_url: picture_url, emission_value: emission_value
     });
 
-    // create Prize objects from list of strings
     const Prizes = db.Prizes;
     const prizes = req.body.prizes;
     if (prizes) {
@@ -25,6 +27,9 @@ exports.addEvent = async (req, res) => {
   }
 };
 
+/**
+ * Method to get a single event by id
+ */
 exports.getEvent = async (req, res) => {
   try {
     const { id } = req.params;
@@ -61,6 +66,9 @@ exports.getEvent = async (req, res) => {
   }
 };
 
+/**
+ * Method to get all events
+ */
 exports.getAllEvents = async (req, res) => {
   try {
     const events = await Event.findAll();
@@ -74,6 +82,9 @@ exports.getAllEvents = async (req, res) => {
   }
 }
 
+/**
+ * Method to update an event by id
+ */
 exports.updateEvent = async (req, res) => {
   try {
     const id = req.params.id;  // Get id from URL params, not body
@@ -98,6 +109,9 @@ exports.updateEvent = async (req, res) => {
   }
 };
 
+/**
+ * Method to remove an event by id
+ */
 exports.removeEvent = async (req, res) => {
   try {
     const id = req.params.id;
@@ -115,6 +129,9 @@ exports.removeEvent = async (req, res) => {
   }
 };
 
+/**
+ * Method to add a participant to an event
+ */
 exports.addParticipant = async (req, res) => {
   try {
     const { volunteer_id } = req.body;  // Directly destructure volunteer_id
@@ -141,6 +158,9 @@ exports.addParticipant = async (req, res) => {
   }
 };
 
+/**
+ * ;ethod to remove a participant from an event
+ */
 exports.removeParticipant = async (req, res) => {
   try {
     const { volunteer_id } = req.body;
@@ -162,6 +182,9 @@ exports.removeParticipant = async (req, res) => {
   }
 };
 
+/**
+ * Method to confirm a participant
+ */
 exports.confirmParticipant = async (req, res) => {
   try {
     const { volunteer_id } = req.body;
@@ -190,6 +213,9 @@ exports.confirmParticipant = async (req, res) => {
   }
 };
 
+/**
+ * Method to assign random prizes to participants
+ */
 exports.assignRandomPrizes = async (req, res) => {
   let prizes = await db.Prizes.findAll({
     where: { event_id: req.params.id, random: true }
@@ -207,6 +233,9 @@ exports.assignRandomPrizes = async (req, res) => {
   res.status(200).json({ message: "Prizes assigned successfully!", data: prizeAssignments });
 };
 
+/**
+ * Method to change the status of an event
+ */
 exports.changeEventStatus = async (req, res) => {
   try {
     const id = req.params.id;
