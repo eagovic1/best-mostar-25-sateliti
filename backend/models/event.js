@@ -26,6 +26,18 @@ module.exports = (sequelize) => {
         date:{
           type: DataTypes.DATE,
           allowNull: false,
+        },
+        minimum_signed:{
+          type: DataTypes.INTEGER,
+          allowNull: true
+        },
+        maximum_signed:{
+          type: DataTypes.INTEGER,
+          allowNull: true,
+        },
+        picture_url:{
+          type: DataTypes.STRING,
+          allowNull: true
         }
     },{
       freezeTableName: true
