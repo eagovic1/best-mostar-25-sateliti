@@ -1,18 +1,18 @@
 const { Sequelize, DataTypes } = require('sequelize');
-require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
 
 const sequelize = new Sequelize(
-    "freedb_best-mostar-hackathon-db",
-    "freedb_verdi-admin",
+    process.env.DB_NAME,
+    process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
-      host: "sql.freedb.tech",
-      port: "3306",
-      dialect: "mysql",
-      logging: false, 
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
+        dialect: "mysql",
+        logging: false,
     }
-  );
-  
+);
+
 
 const Volunteer = require('../models/volunteer')(sequelize);
 const Event = require('../models/event')(sequelize);
