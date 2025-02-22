@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
           type: DataTypes.STRING,
           allowNull: true //ne mora se komentarisati event?
         },
+        date:{
+          type: DataTypes.DATETIME,
+          allowNull: false,
+        }
     },{
       freezeTableName: true
     })
