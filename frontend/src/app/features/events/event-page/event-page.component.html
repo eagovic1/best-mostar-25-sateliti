@@ -1,18 +1,6 @@
 <div class="content">
-    <p class="event-title">Event neki tamo</p>
-    <p class="event-desc">
-        Olimpijske igre 2024. godine biće održane u Parizu, Francuska, od 26. jula do 11. avgusta. Ovo je drugi put da će Pariz biti domaćin letnjih olimpijskih igara, jer je prvi put to bilo 1924. godine. Igre će okupiti najbolje sportiste iz celog sveta, koji će se takmičiti u 32 sporta, uključujući novitete poput breakdance-a, koji će biti prvi put uveden na letnjim olimpijadama.
-
-Ključni momenti:
-Otvoreni stadion: Ceremonija otvaranja biće održana na otvorenom stadionu "La Défense Arena", najvećoj zatvorenoj areni u Francuskoj, koja će biti preuređena za ovaj specifičan događaj.
-Novine u sportovima: Uz tradicionalne sportove poput atletike, plivanja i gimnastike, Pariz 2024. će biti domaćin novim disciplinama, uključujući i e-sportove, koji se postepeno integrišu u međunarodne sportske događaje.
-Zeleni ciljevi: Pariz je planirao održive igre sa ciljem smanjenja ugljeničnih emisija, korišćenjem ekoloških infrastruktura i obnovljivih izvora energije tokom trajanja samih igara.
-Svečana atmosfera: Tokom trajanja Igara, Pariz će biti domaćin brojnih kulturnih događaja, umetničkih instalacija i manifestacija koje će omogućiti posetiocima da uživaju u francuskoj kulturi, dok prate sportska takmičenja.
-Prognostičke medalje:
-Francuska: Kao domaćin, Francuska će se truditi da ostvari što bolje rezultate, posebno u sportovima kao što su džudo, rukomet i biciklizam, gde su poslednjih godina imali izuzetne rezultate.
-Sjedinjene Američke Države (SAD): SAD su tradicionalno najuspešnija nacija na letnjim olimpijadama, a očekuje se da će dominirati u plivanju, atletici i gimnastici.
-Kina: Kina je jedna od najjačih nacija u sportovima kao što su stoni tenis, badminton, ronjenje i dizanje tegova, te se očekuje da će biti jedan od glavnih konkurenta za medalje.
-    </p>
+    <p class="event-title">{{event.name}}</p>
+    <p class="event-desc">{{event.description}}</p>
     <div class="row">
         <div class="wrapper">
             <div class="portrait"></div>
@@ -63,7 +51,7 @@ Kina: Kina je jedna od najjačih nacija u sportovima kao što su stoni tenis, ba
             <img src="https://www.svgrepo.com/show/532362/user.svg" alt="">
             <p>Time</p>
         </div>
-        <p class="property-value">13 February, 12:00 PM</p>
+        <p class="property-value">{{event.date}}</p>
     </div>
     <div class="property">
         <div class="property-data">
@@ -77,7 +65,7 @@ Kina: Kina je jedna od najjačih nacija u sportovima kao što su stoni tenis, ba
             <img src="https://www.svgrepo.com/show/521170/location-1.svg" alt="">
             <p>Location</p>
         </div>
-        <p class="property-value">Grbavicka 12, Sarajevo</p>
+        <p class="property-value">{{event.location}}</p>
     </div>
     <button class="location-button">Precise location</button>
     <div class="property">

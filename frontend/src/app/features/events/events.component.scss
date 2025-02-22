@@ -1,6 +1,6 @@
 :host {
     width: calc(100% - 200px);
-    //min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     margin-top: 60px;
     margin-left: 200px;
     //background-color: rgb(231, 236, 236);
@@ -26,9 +26,10 @@
         margin-top: 20px;
         min-height: 400px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, 280px);
         //background-color: #f0f1f3;     
         row-gap: 25px;
+        gap: 25px;
         margin-bottom: 50px;
     }
 }

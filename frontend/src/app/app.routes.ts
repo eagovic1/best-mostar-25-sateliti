@@ -8,10 +8,12 @@ import { ProfileComponent } from './features/profile/profile.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'events', component: EventsComponent},
-    {path: 'events/1', component: EventPageComponent},
+    {path: 'events', children: [
+        {path: '', component: EventsComponent},
+        {path: ':id', component: EventPageComponent}
+    ]},
     {path: 'tasks', component: TasksComponent},
     {path: 'leaderboard', component: LeaderboardComponent},
     {path: 'profile', component: ProfileComponent}
-    
+
 ];

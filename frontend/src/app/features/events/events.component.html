@@ -29,7 +29,7 @@
 </div>
 <div class="events-grid">
   @for (event of events; track $index) {
-    <app-event-card [event]="event" [routerLink] = "['/events/1']"></app-event-card>
+    <app-event-card [event]="event" [routerLink]="['/events', event.id]"></app-event-card>
   }
 
 </div>
