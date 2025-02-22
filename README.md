@@ -1,1 +1,7 @@
-# best-mostar-25-sateliti
+# SATELITI
+
+## BACKEND
+### node ./backend/app.js
+
+## FRONTEND
+###
