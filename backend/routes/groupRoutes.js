@@ -10,5 +10,11 @@ router.get('', groupController.getGroup);
 router.put('', groupController.updateGroup);
 //delete - izbrisi grupu
 router.delete('', groupController.deleteGroup);
+//get - vrati sve grupe
+router.get('/all', groupController.getGroups);
+//post - dodaj volontera u grupu
+router.post('/join-group', groupController.joinGroup);
+//delete - izbaci volontera iz grupe
+router.delete('/leave-group', groupController.leaveGroup);
 
 module.exports = router;
