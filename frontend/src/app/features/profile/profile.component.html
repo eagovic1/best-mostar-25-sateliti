@@ -21,9 +21,31 @@
             </div>
         </div>
     </div>
+    <div class="xp-container">
+        <div class="xp-header">
+            <span class="xp-points">245</span>
+            <span class="xp-badge">XP</span>
+            <div class="level-badge">LEVEL 8</div>
+        </div>
+
+        <div class="xp-progress">
+            <span class="level-text">LEVEL 8</span>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 64%;"></div>
+            </div>
+            <span class="level-text">LEVEL 9</span>
+        </div>
+
+        <div class="xp-footer">
+            <span class="xp-value">225 <span class="xp-badge">XP</span></span>
+            <span class="xp-value">350 <span class="xp-badge">XP</span></span>
+        </div>
+    </div>
+
+    <!--
     <div class="level-container">
         <img src="https://pbs.twimg.com/media/GKDLBg4b0AAwgCf.jpg:large" alt="">
-    </div>
+    </div>-->
 </div>
 <!--<p class="preffered-title">Attributes</p>
 <div class="preffered-section">
@@ -33,11 +55,7 @@
 </div>-->
 
 <mat-tab-group class="stats-nav">
-    <mat-tab class="tab" label="Stats">
-        <div class="stats-tab tab">
-            
-        </div>
-    </mat-tab>
+    
     <mat-tab label="Achievements">
         <div class="badges-tab tab">
             <div class="profile-badges-box">
@@ -58,16 +76,48 @@
             </div>           
         </div>
     </mat-tab>
+    <mat-tab class="tab" label="Events">
+        <div class="stats-tab tab">
+                <div class="stats-list">
+                    @for (event of newEvents; track $index) {
+                        <div class="event-item">
+                            <div class="event-data">
+                                <p class="event-name">{{event.name}}</p>
+                                <div class="organisator-name">{{event.organisation}}</div>
+                            </div>
+                            <div class="end">
+                                <div class="event-date">
+                                    <p>{{event.date}}</p>
+                                </div>
+                                
+                                <button>Details</button>
+                            </div>
+                        </div>
+                    }
+    
+                </div>
+        </div>
+    </mat-tab>
     <mat-tab class="tab" label="History">
         <div class="history-tab tab">
             <div class="history-list">
-                <div class="event-item"></div>
-                <div class="event-item"></div>
-                <div class="event-item"></div>
-                <div class="event-item"></div>
-                <div class="event-item"></div>
-                <div class="event-item"></div>
-                <div class="event-item"></div>
+                @for (event of oldEvents; track $index) {
+                    <div class="event-item">
+                        <div class="event-data">
+                            <p class="event-name">{{event.name}}</p>
+                            <div class="organisator-name">{{event.organisation}}</div>
+                        </div>
+                        <div class="end">
+                            <div class="event-date">
+                                <p>{{event.date}}</p>
+                            </div>
+                            
+                            <div class="event-points">
+                                <p>{{event.xp}} xp</p>
+                            </div>
+                        </div>
+                    </div>
+                }
 
             </div>
         </div>    

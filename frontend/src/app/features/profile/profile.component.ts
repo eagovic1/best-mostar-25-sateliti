@@ -10,5 +10,20 @@ import { MatTabsModule } from '@angular/material/tabs';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
+  oldEvents: any[] = [
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'}
+  ]
 
+  newEvents: any[] = [
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+    {name: 'Posumljavanje', organisation: 'Isatis', date: '19 Feb', xp: '24'},
+
+  ]
 }

@@ -71,6 +71,77 @@
                 
             }
         }
+        .xp-container {
+            background: linear-gradient(135deg, #2d1b52, #1c1233);
+            padding: 20px;
+            border-radius: 16px;
+            width: 450px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            .xp-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .xp-points {
+                    font-size: 48px;
+                    font-weight: bold;
+                    color: #c9a7ff;
+                }
+                .xp-badge {
+                    background: white;
+                    color: #4f2c82;
+                    font-weight: bold;
+                    padding: 4px 10px;
+                    border-radius: 50px;
+                    font-size: 14px;
+                }
+                .level-badge {
+                    border: 2px solid rgba(255, 255, 255, 0.5);
+                    padding: 8px 16px;
+                    border-radius: 30px;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+            }
+            .xp-progress {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 16px 0;
+                .level-text {
+                    font-size: 14px;
+                    opacity: 0.8;
+                }
+                
+                .progress-bar {
+                    flex-grow: 1;
+                    height: 8px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 10px;
+                    margin: 0 12px;
+                    overflow: hidden;
+                    .progress-fill {
+                        height: 100%;
+                        background: #c9a7ff;
+                        border-radius: 10px;
+                    }
+                }
+            }
+            .xp-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 12px;
+                .xp-value {
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                }
+            }
+            
+        }
+    
+    
         .student-data-container {
             //background-color: rgb(255, 238, 238);
             //border-radius: 12px;
@@ -161,21 +232,22 @@
             //background-color: red;
             .profile-badges-box {
                 margin-top: 50px;
-                width: 150px;
-                height: 120px;
+                width: 200px;
+                height: 200px;
                 background-color: white;
                 border-radius: 10px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 5px;
+                gap: 15px;
                 .badge-name {
-                    font-size: 16px;
+                    
+                    font-size: 20px;
                 }
                 svg {
-                    height: 50px;
-                    width: 50px;
+                    height: 60px;
+                    width: 60px;
                 }
             }
         }
@@ -191,18 +263,157 @@
                 display: flex;
                 flex-direction: column;
                 .event-item {
+                    cursor: pointer;
                     width: 100%;
                     display: flex;
                     background-color: white;
                     height: 80px;
                     margin-bottom: 10px;
+                    justify-content: space-between;
+                    .event-data {
+                        display: flex;
+                        flex-direction: column;
+                        width: 200px;
+                        height: 100%;
+                        padding-left: 30px;
+                        justify-content: center;
+                        //background-color: red;
+                        //gap: 10px;
+                        .event-name {
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
+                        .organisator-name {
+                            font-size: 14px;
+                        }
+                    }
+                    .end {
+                        display: flex;
+                        align-items: center;
+                        .event-date {
+                            justify-self: flex-end;
+                            display: flex;
+                            background-color: rgb(129, 104, 204);
+                            width: 100px;
+                            height: 40px;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 10px;
+                            margin-right: 20px;
+                            color: white;
+                            font-size: 16px;
+                        }
+                        .event-points {
+                            margin-right: 20px;
+                            justify-self: flex-end;
+                            display: flex;
+                            height: 40px;
+                            width: 60px;
+                            border-radius: 10px;
+                            background-color: rgb(119, 236, 141);
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-weight: bold;
+    
+                        }
+                    }
+                }
+                .event-item:hover {
+                    background-color: rgb(250, 183, 250);
                 }
             }
         }
         .stats-tab {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
             min-height: 300px;
             width: 100%;
             display: flex;
+            .stats-list {
+                width: 900px;
+                //height: 250px;
+                border-radius: 12px;
+                //background-color: white;
+                display: flex;
+                flex-direction: column;
+                .event-item {
+                    cursor: pointer;
+                    width: 100%;
+                    display: flex;
+                    background-color: white;
+                    height: 80px;
+                    margin-bottom: 10px;
+                    justify-content: space-between;
+                    .event-data {
+                        display: flex;
+                        flex-direction: column;
+                        width: 200px;
+                        height: 100%;
+                        padding-left: 30px;
+                        justify-content: center;
+                        //background-color: red;
+                        //gap: 10px;
+                        .event-name {
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
+                        .organisator-name {
+                            font-size: 14px;
+                        }
+                    }
+                    .end {
+                        display: flex;
+                        align-items: center;
+                        .event-date {
+                            justify-self: flex-end;
+                            display: flex;
+                            background-color: rgb(129, 104, 204);
+                            width: 100px;
+                            height: 40px;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 10px;
+                            margin-right: 20px;
+                            color: white;
+                            font-size: 16px;
+                        }
+                        .event-points {
+                            margin-right: 20px;
+                            justify-self: flex-end;
+                            display: flex;
+                            height: 40px;
+                            width: 60px;
+                            border-radius: 10px;
+                            background-color: rgb(119, 236, 141);
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            font-weight: bold;
+    
+                        }
+                        button {
+                            margin-right: 20px;
+                            justify-self: flex-end;
+                            display: flex;
+                            height: 40px;
+                            width: 100px;
+                            align-items: center;
+                            border-radius: 10px;
+                            border: none;
+                            justify-content: center;
+                            color: white;
+                            background-color: rgb(207, 166, 251);
+                            cursor: pointer;
+                            //font-weight: bold;
+                        }
+                        button:hover {
+                             background-color: rgb(255, 192, 233);
+                        }
+                    }
+                }
+            }
         }
         
         
