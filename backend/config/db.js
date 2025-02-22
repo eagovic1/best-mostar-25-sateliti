@@ -1,10 +1,17 @@
 const { Sequelize, DataTypes } = require('sequelize');
+require('dotenv').config();
 
-const sequelize = new Sequelize('db', 'root', 'password', {
-    host: 'localhost',
-    dialect: 'mysql',
-    logging: false
-});
+const sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+      host: process.env.DB_HOST,
+      dialect: process.env.DB_DIALECT,
+      logging: process.env.DB_LOGGING === 'true', // Converts string to boolean
+    }
+  );
+  
 
 const Volunteer = require('../models/volunteer')(sequelize);
 const Event = require('../models/event')(sequelize);
@@ -24,8 +31,8 @@ Prizes.hasOne(Event);
 Volunteer.belongsToMany(Event, { through: Event_Volunteer });
 Event.belongsToMany(Volunteer, { through: Event_Volunteer });
 
-Group.belongsToMany(Volunteer, {through: Group_Volunteer});
-Volunteer.belongsToMany(Group, {through: Group_Volunteer});
+Group.belongsToMany(Volunteer, { through: Group_Volunteer });
+Volunteer.belongsToMany(Group, { through: Group_Volunteer });
 
 const db = {
     sequelize,
