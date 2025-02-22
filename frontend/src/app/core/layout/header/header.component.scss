@@ -13,7 +13,7 @@
         font-size: 20px;
     }
     .nav {
-        width: 230px;
+        width: 260px;
     
         height: 40px;
         display: flex;
@@ -21,7 +21,41 @@
         margin-right: 20px;
         align-items: center;
         justify-content: space-between;
-        
+        .streak-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            font-size: 16px;
+            height: 30px;
+            font-weight: bold;
+            background: #ffebcc;
+            width: 50px;
+            //padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            .streak-number {
+                //margin-left: 10px;
+                //margin-right: 10px;
+                color: #ff4500;
+                font-size: 16px;
+              }
+          }
+          
+          
+          
+          .level-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            background-color: orange;
+          }
+          
+          
+          
+          
            
             //background-color: red;
             .notification-button {
