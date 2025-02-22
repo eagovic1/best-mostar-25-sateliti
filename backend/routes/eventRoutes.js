@@ -29,7 +29,7 @@ router.post('/:id/participants', eventController.addParticipant);
 /**
  * Route for removing event participant
  */
-router.post("/:id/participants/remove", eventController.removeParticipant);
+router.delete("/:id/participants/remove", eventController.removeParticipant);
 /**
  * Route for confirming event pariticipation
  */
