@@ -31,6 +31,16 @@ exports.getEvent = async (req, res) => {
       return res.status(404).json({ message: "Event not found!" });
     }
 
+    let volunteerEvent = await db.Event_Volunteer.findAll({
+      where: { EventId: id }
+    });
+
+    let participants = volunteerEvent.map(async (volunteer) => {
+      let user = await db.Volunteer.findByPk(volunteer.VolunteerId);
+      return user;
+    }
+    );
+
     return res.status(200).json({
       message: "Data retrieved successfully!",
       data: {
@@ -39,7 +49,8 @@ exports.getEvent = async (req, res) => {
         location: event.location,
         name: event.name,
         description: event.description,
-        date: event.date
+        date: event.date,
+        participants: participants
       }
     });
   } catch (error) {
