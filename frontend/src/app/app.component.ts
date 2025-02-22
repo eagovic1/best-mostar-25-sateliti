@@ -15,7 +15,7 @@ export class AppComponent {
   title = 'frontend';
   showHeaderAndSidebar: Boolean = true;
 
-  constructor(private router: Router,private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     /*
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)

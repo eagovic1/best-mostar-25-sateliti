@@ -1,6 +1,32 @@
-<div class="leaderboard-header"></div>
+<button (click)="openJoinModal()" class="join-group">Join group</button>
+<!--
+<div class="leaderboard-header">
+    <div class="leaderboard-nav">
+        <div class="">Global</div>
+        <div class="">Private</div>
+    </div>
+</div>-->
 <div class="leaderboard-global-page">
-    <div class="leaderboard-sidebar"></div>
+    <div class="leaderboard-sidebar">
+        <!--
+        <form [formGroup]="formGroup">
+            <p-dropdown 
+                formControlName="selectedCity" 
+                [options]="options"
+                optionLabel="name"
+                placeholder="Select a City" />
+        </form>
+    -->
+        <div class="organisation-item">
+            <p>Isatis Software Solutions</p>
+        </div>
+        <div class="organisation-item">
+            <p>Isatis Software Solutions</p>
+        </div>
+        <div class="organisation-item">
+            <p>Isatis Software Solutions</p>
+        </div>
+    </div>
     <div class="leaderboard-table">
         <div class="leaderboard-headrow">
             <div class="col1">
@@ -26,6 +52,7 @@
                 </div>
                 <div class="col3">
                     <p class="points">{{member.points}}</p>
+                    <img src="https://www.svgrepo.com/show/506715/fire.svg" alt="">
                 </div>
             </div>
         }
