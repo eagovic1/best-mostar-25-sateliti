@@ -27,13 +27,13 @@ module.exports = (sequelize) => {
           type: DataTypes.DATE,
           allowNull: false,
         },
-        min_number_signed:{
+        minimum_signed:{
           type: DataTypes.INTEGER,
-          allowNull: false
+          allowNull: true
         },
-        max_number_signed:{
+        maximum_signed:{
           type: DataTypes.INTEGER,
-          allowNull: false,
+          allowNull: true,
         },
         picture_url:{
           type: DataTypes.STRING,
