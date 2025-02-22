@@ -34,5 +34,9 @@ router.delete("/:id/participants/remove", eventController.removeParticipant);
  * Route for confirming event pariticipation
  */
 router.post("/:id/participants/confirm", eventController.confirmParticipant);
+/**
+ * Route for assigning random prizes to event participants
+ */
+router.get("/:id/random-prizes", eventController.assignRandomPrizes);
 
 module.exports = router;

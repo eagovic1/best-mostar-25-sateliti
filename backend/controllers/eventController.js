@@ -5,7 +5,7 @@ exports.addEvent = async (req, res) => {
   try {
     const { company_id, location, name, description } = req.body;
 
-    const event = await Event.create({ company_id, location, name, description, date: new Date()});
+    const event = await Event.create({ company_id, location, name, description, date: new Date() });
 
     // create Prize objects from list of strings
     const Prizes = db.Prizes;
@@ -174,4 +174,21 @@ exports.confirmParticipant = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Internal server error: ", error: error.message });
   }
+};
+
+exports.assignRandomPrizes = async (req, res) => {
+  let prizes = await db.Prizes.findAll({
+    where: { event_id: req.params.id, random: true }
+  });
+
+  let participants = await db.Event_Volunteer.findAll({
+    where: { EventId: req.params.id, confirmed: true }
+  });
+
+  let randomParticipants = getRandomUsesrStreakCount(participants, prizes.length);
+  let prizeAssignments = randomParticipants.map((participant, index) => {
+    return { participant: participant, prize: prizes[index] };
+  });
+
+  res.status(200).json({ message: "Prizes assigned successfully!", data: prizeAssignments });
 };
