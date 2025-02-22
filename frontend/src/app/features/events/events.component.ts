@@ -4,26 +4,38 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
 import { EventsService } from '../../core/services/api/events.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { take } from 'rxjs';
 
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [EventCardComponent, MatFormFieldModule, MatInputModule, RouterModule],
+  imports: [EventCardComponent, MatFormFieldModule, MatInputModule, RouterModule, CommonModule],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'
 })
-export class EventsComponent implements OnInit{
+export class EventsComponent {
+  events: any;
 
-  events: any[] | undefined;
-  constructor(public eventsService: EventsService) {
+  constructor(private http: HttpClient) {}
 
-  }
-  ngOnInit(): void {
-    this.eventsService.getEvents().subscribe((res : any) => {
-      console.log("adadadadadadada" + res);
-      this.events = res;
+  ngOnInit() {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
     });
 
+    this.http.get<any>('http://localhost:3000/api/events', { headers, withCredentials: true })
+   .pipe(take(1))  // Only take the first response
+   .subscribe(
+     (data) => {
+       this.events = data;
+       console.log(data);
+     },
+     (error) => {
+       console.error('Error fetching events', error);
+     }
+   );
   }
 }
