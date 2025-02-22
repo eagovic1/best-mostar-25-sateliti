@@ -1,18 +1,57 @@
-<div class="content">
-    <p class="event-title">{{event.name}}</p>
-    <p class="event-desc">{{event.description}}</p>
-    <div class="row">
-        <div class="wrapper">
-            <div class="portrait"></div>
-            <div class="portrait pink"></div>
-            <div class="portrait red"></div>
-            <div class="portrait"></div>
-            <div class="portrait pink"></div>
-            <span class="view-full-list">+ 40</span>
+
+<div class="top-section">
+    <div class="content">
+        <p class="event-title">{{event.name}}</p>
+        <p class="event-desc">{{event.description}}</p>
+        <div class="row">
+            <div class="wrapper">
+                <div class="portrait"></div>
+                <div class="portrait pink"></div>
+                <div class="portrait red"></div>
+                <div class="portrait"></div>
+                <div class="portrait pink"></div>
+                <span class="view-full-list">+ 40</span>
+            </div>
+            <button class="join-event">Join</button>
         </div>
-        <button class="join-event">Join</button>
     </div>
-    
+    <div class="info">
+        <p class="info-title">INFORMATIONS</p>
+        <div class="property">
+            <div class="property-data">
+                <img src="https://www.svgrepo.com/show/315761/organisation.svg" alt="">
+                <p>Organisation</p>
+            </div>
+            <p class="property-value">Isatis Software Solutions</p>
+        </div>
+        <div class="property">
+            <div class="property-data">
+                <img src="https://www.svgrepo.com/show/532362/user.svg" alt="">
+                <p>Time</p>
+            </div>
+            <p class="property-value">{{event.date}}</p>
+        </div>
+        <div class="property">
+            <div class="property-data">
+                <img src="https://www.svgrepo.com/show/532362/user.svg" alt="">
+                <p>People</p>
+            </div>
+            <p class="property-value">40</p>
+        </div>
+        <div class="property">
+            <div class="property-data">
+                <img src="https://www.svgrepo.com/show/521170/location-1.svg" alt="">
+                <p>Location</p>
+            </div>
+            <p class="property-value">{{event.location}}</p>
+        </div>
+        
+        
+        <button class="location-button">Precise location</button>
+        <button class="organisation-button">See website</button>
+        <!--<div class="date-div"></div>-->
+    </div>
+</div>
     <p class="prizes-title">Prizes</p>
     <div class="prizes-grid">
         <div class="prize-card">
@@ -43,38 +82,3 @@
             </div>
         </div>
     </div>
-</div>
-<div class="info">
-    <p class="info-title">INFORMATIONS</p>
-    <div class="property">
-        <div class="property-data">
-            <img src="https://www.svgrepo.com/show/532362/user.svg" alt="">
-            <p>Time</p>
-        </div>
-        <p class="property-value">{{event.date}}</p>
-    </div>
-    <div class="property">
-        <div class="property-data">
-            <img src="https://www.svgrepo.com/show/532362/user.svg" alt="">
-            <p>People</p>
-        </div>
-        <p class="property-value">40</p>
-    </div>
-    <div class="property">
-        <div class="property-data">
-            <img src="https://www.svgrepo.com/show/521170/location-1.svg" alt="">
-            <p>Location</p>
-        </div>
-        <p class="property-value">{{event.location}}</p>
-    </div>
-    <button class="location-button">Precise location</button>
-    <div class="property">
-        <div class="property-data">
-            <img src="https://www.svgrepo.com/show/315761/organisation.svg" alt="">
-            <p>Organisation</p>
-        </div>
-        <p class="property-value">Isatis Software Solutions</p>
-    </div>
-    <button class="organisation-button">See website</button>
-    <!--<div class="date-div"></div>-->
-</div>
