@@ -19,5 +19,9 @@ export class EventsService {
   createEvent(event: Event): Observable<Event> {
     return this.http.post<Event>(this.apiUrl, event);
   }
+  addParticipantToEvent(eventId: number, participantData: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/events/${eventId}/participants`, participantData);
+  }
+
 
 }
