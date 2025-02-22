@@ -2,11 +2,35 @@ const express = require('express');
 const router = express.Router();
 const eventController = require('../controllers/eventController');
 
-//post da doda novi event
+/**
+ * Route for adding event
+ */
 router.post('/', eventController.addEvent);
-//get da dohvati event
+/**
+ * Route for getting all events
+ */
+router.get('/', eventController.getAllEvents);
+/**
+ * Route for getting event by id
+ */
 router.get('/:id', eventController.getEvent);
-//put za svaki join???
+/**
+ * Route for updating event by id
+ */
 router.put('/:id', eventController.updateEvent);
-//delete da izbrise event
+/**
+ * Route for deleting event by id
+ */
 router.delete('/:id', eventController.removeEvent);
+/**
+ * Route for adding event participant
+ */
+router.post('/:id/participants', eventController.addParticipant);
+/**
+ * Route for removing event participant
+ */
+router.post("/:id/participants/remove", eventController.removeParticipant);
+/**
+ * Route for confirming event pariticipation
+ */
+router.post("/:id/participants/confirm", eventController.confirmParticipant);

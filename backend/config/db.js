@@ -27,6 +27,7 @@ const db = {
     Event,
     Company,
     Prizes,
+    Event_Volunteer
 };
 
 module.exports = db;

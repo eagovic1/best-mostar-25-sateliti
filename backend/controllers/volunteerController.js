@@ -1,4 +1,5 @@
-const User = require('../models/volunteer');
+const db = require('../config/db');
+const User = db.Volunteer;
 const bcrypt = require('bcrypt');
 
 exports.register = async (req, res) => {

@@ -1,4 +1,5 @@
-const Company = require('../models/company');
+const db = require('../config/db');
+const Company = db.Company;
 const bcrypt = require('bcrypt');
 
 exports.register = async (req, res) => {
