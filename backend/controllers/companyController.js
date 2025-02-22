@@ -2,6 +2,9 @@ const db = require('../config/db');
 const Company = db.Company;
 const bcrypt = require('bcrypt');
 
+/**
+ * Method to register a new company
+ */
 exports.register = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -20,6 +23,9 @@ exports.register = async (req, res) => {
     }
 }
 
+/**
+ * Method to login a company
+ */
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -40,6 +46,9 @@ exports.login = async (req, res) => {
     }
 }
 
+/**
+ * Method to edit company profile by id
+ */
 exports.edit = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -64,6 +73,9 @@ exports.edit = async (req, res) => {
     }
 }
 
+/**
+ * Method to delete company by id 
+ */
 exports.delete = async (req, res) => {
     try {
         const companyId = req.params.id || req.company.companyId;
@@ -81,6 +93,9 @@ exports.delete = async (req, res) => {
     }
 }
 
+/**
+ * Method to change emission value
+ */
 exports.changeEmissionValue = (emmisionValue, companyId) => {
     Company.update({ current_emission_value: emmisionValue }, { where: { id: companyId } });
 }
