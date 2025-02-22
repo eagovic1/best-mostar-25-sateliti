@@ -3,14 +3,19 @@ const app = express();
 const routes = require('./routes/api');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const cors = require('cors');
+//const cors = require('cors');
 const cron = require('node-cron');
 const cors = require('cors');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', routes);
-app.use(cors());
+app.use(cors(
+    {
+        origin: "*",
+        credentials: true,
+    }
+));
 
 
 //database
@@ -21,14 +26,6 @@ db.sequelize.sync().then(() => {
 }).catch(error => {
     console.error('Database error: ', error);
 })
-
-//cors
-app.use(
-    cors({
-        origin: "http://localhost:5173",
-        credentials: true,
-    })
-);
 
 //session
 app.use(
