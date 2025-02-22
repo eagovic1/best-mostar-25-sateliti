@@ -6,16 +6,22 @@ const session = require('express-session');
 //const cors = require('cors');
 const cron = require('node-cron');
 const cors = require('cors');
+const corsOptions ={
+    origin:'http://localhost:4200', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+    res.setHeader('Referrer-Policy', 'no-referrer'); // or another policy like 'origin', 'strict-origin', etc.
+    next();
+  });
 app.use('/api', routes);
-app.use(cors(
-    {
-        origin: "*",
-        credentials: true,
-    }
-));
+
+
 
 
 //database
