@@ -28,14 +28,7 @@
       </mat-form-field>
 </div>
 <div class="events-grid">
-    <app-event-card [routerLink] = "['/events/1']"></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
-    <app-event-card></app-event-card>
+    @for (event of events; track $index) {
+      <app-event-card [event]="event" [routerLink] = "['/events/1']"></app-event-card>
+    }
 </div>
