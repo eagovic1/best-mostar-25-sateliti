@@ -192,3 +192,27 @@ exports.assignRandomPrizes = async (req, res) => {
 
   res.status(200).json({ message: "Prizes assigned successfully!", data: prizeAssignments });
 };
+
+exports.changeEventStatus = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const status = req.body.status;
+
+    if (!validateEventStatus(status)) {
+      return res.status(400).json({ message: "Invalid event status!" });
+    }
+
+    const event = await Event.findByPk(id);
+    if (!event) {
+      return res.status(404).json({ message: "Event not found!" });
+    }
+
+    event.status = status;
+    await event.save();
+
+    res.status(200).json({ message: "Event status updated successfully!" });
+
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error: ", error: error.message });
+  }
+}

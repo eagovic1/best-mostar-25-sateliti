@@ -32,6 +32,14 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    current_emission_value: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    targeted_emission_value: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   }, {
     freezeTableName: true
   })
