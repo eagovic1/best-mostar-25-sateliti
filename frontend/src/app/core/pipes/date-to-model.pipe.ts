@@ -7,19 +7,27 @@ import { DateTimeModel } from '../models/date-time-model';
 })
 export class DateToModelPipe implements PipeTransform {
 
-  transform(dateString: string): DateTimeModel {
-    const dateParts = dateString.split(' ');
-    const dateArray = dateParts[0].split('-');
-    const timeArray = dateParts[1].split(':');
+  transform(value: string): string {
+    if (!value) return '';
 
-    return {
-      year: parseInt(dateArray[0], 10),
-      month: parseInt(dateArray[1], 10),
-      day: parseInt(dateArray[2], 10),
-      hour: parseInt(timeArray[0], 10),
-      minute: parseInt(timeArray[1], 10),
-      second: parseInt(timeArray[2], 10)
-    };
+    // Parse the input datetime string
+    const date = new Date(value);
+
+    // Define an array of month names for easy access
+    const months = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+
+    // Get the day and month from the date
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+
+    // Format the time (hours and minutes)
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+
+    // Return the formatted string in the format: "2 Feb - 01:00"
+    return `${day} ${month} - ${hours}:00 PM`;
   }
 
 }

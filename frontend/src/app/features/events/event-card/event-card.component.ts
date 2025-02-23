@@ -1,17 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EventsService } from '../../../core/services/api/events.service';
 import { DateTimeModel } from '../../../core/models/date-time-model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-event-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './event-card.component.html',
   styleUrl: './event-card.component.scss'
 })
 export class EventCardComponent{
   @Input() event: any;
   date!: DateTimeModel;
+  joined: boolean = false;
 
   constructor(private eventService: EventsService) {}
   
@@ -31,5 +33,8 @@ export class EventCardComponent{
       };
     }
       */
-
+    joinEvent(event: Event): void {
+      event.stopPropagation();  // Prevent navigation from happening
+      this.joined = true;  // Mark the event as joined
+    }
 }

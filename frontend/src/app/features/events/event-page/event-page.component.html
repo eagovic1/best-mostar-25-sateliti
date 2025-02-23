@@ -10,9 +10,11 @@
                 <div class="portrait red"></div>
                 <div class="portrait"></div>
                 <div class="portrait pink"></div>
-                <span class="view-full-list">+ 40</span>
+                <span class="view-full-list">+ 18</span>
             </div>
-            <button class="join-event">Join</button>
+            <button class="join-event" [ngClass]="{'joined': joined}" (click)="joinEvent()">
+                {{ joined ? 'Joined' : 'Join' }}
+              </button>
         </div>
     </div>
     <div class="info">
@@ -29,14 +31,14 @@
                 <img src="https://www.svgrepo.com/show/532362/user.svg" alt="">
                 <p>Time</p>
             </div>
-            <p class="property-value">{{event.date}}</p>
+            <p class="property-value">{{event.date | dateToModel}}</p>
         </div>
         <div class="property">
             <div class="property-data">
                 <img src="https://www.svgrepo.com/show/532362/user.svg" alt="">
                 <p>People</p>
             </div>
-            <p class="property-value">40</p>
+            <p class="property-value">50</p>
         </div>
         <div class="property">
             <div class="property-data">

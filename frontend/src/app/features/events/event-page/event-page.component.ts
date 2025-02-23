@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventsService } from '../../../core/services/api/events.service';
 import { DateTimeModel } from '../../../core/models/date-time-model';
+import { DateToModelPipe } from "../../../core/pipes/date-to-model.pipe";
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-event-page',
   standalone: true,
-  imports: [],
+  imports: [DateToModelPipe, MatSnackBarModule, CommonModule],
   templateUrl: './event-page.component.html',
   styleUrl: './event-page.component.scss'
 })
@@ -14,8 +17,9 @@ export class EventPageComponent implements OnInit {
   id: number = 0;
   event: any;
   date: DateTimeModel | undefined;
+  joined: boolean = false;
 
-  constructor(private route: ActivatedRoute, private eventService: EventsService){}
+  constructor(private route: ActivatedRoute, private eventService: EventsService,private snackBar: MatSnackBar ){}
   ngOnInit(): void {
   
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -39,25 +43,17 @@ export class EventPageComponent implements OnInit {
     this.eventService.getEventById(this.id).subscribe(event => {
       console.log(event.data);
       this.event = event.data;
-      this.event.date = this.mapDate(event.date)
       //this.members = company.users;
       //console.log(this.members);
       //this.filterCompanies();
     });
   }
 
-  mapDate(dateString: string): DateTimeModel {
-    const dateParts = dateString.split(' ');
-    const dateArray = dateParts[0].split('-');
-    const timeArray = dateParts[1].split(':');
-
-    return {
-      year: parseInt(dateArray[0], 10),
-      month: parseInt(dateArray[1], 10),
-      day: parseInt(dateArray[2], 10),
-      hour: parseInt(timeArray[0], 10),
-      minute: parseInt(timeArray[1], 10),
-      second: parseInt(timeArray[2], 10)
-    };
+  joinEvent(): void {
+    this.joined = true;  // Mark the event as joined
+    this.snackBar.open('You have joined the event!', 'Close', {
+      duration: 3000,
+    });
   }
+
 }
