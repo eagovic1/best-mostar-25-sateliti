@@ -25,7 +25,30 @@
             <button class="join-event" [ngClass]="{'joined': joined}" (click)="joinEvent()">
                 {{ joined ? 'Joined' : 'Join' }}
               </button>
+            
         </div>
+        <div class="co2-container">
+            <div class="co2-header">
+                <span class="co2-reduction">5,000</span>
+                <span class="co2-badge">kg CO2</span>
+                <div class="co2-title">Company CO2 Emission Reduction</div>
+            </div>
+        
+            <div class="co2-progress">
+                <span class="target-text">Achieved: 5,000 kg</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;"></div>
+                    <div class="gain-fill" style="width: 5%;"></div>
+                </div>
+                <span class="achieved-text">Target: 10,000 kg</span>
+            </div>
+        
+            <div class="co2-footer">
+                <span class="co2-status">Event gain: 2,000 kg</span>
+            </div>
+        </div>
+        
+        
     </div>
     <div class="info">
         <p class="info-title">INFORMATIONS</p>

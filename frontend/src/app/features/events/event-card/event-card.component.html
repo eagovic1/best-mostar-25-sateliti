@@ -17,7 +17,7 @@
         <div class="portrait red"></div>
         <div class="portrait"></div>
         <div class="portrait pink"></div>
-        <span class="view-full-list">+ 40</span>
+        <span class="view-full-list">+ {{people}}</span>
     </div>
     <button class="join-event" [ngClass]="{'joined': joined}" (click)="joinEvent($event)">
         {{ joined ? 'Joined' : 'Join' }}

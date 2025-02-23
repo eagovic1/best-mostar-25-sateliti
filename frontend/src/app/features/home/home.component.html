@@ -2,13 +2,29 @@
 <div class="main-section">
     <div class="first-section">
         <p class="title">Learn, play and earn gifts!</p>
-        <p class="subtitle"> dad a da dad ad ada d a adsdsa dads s dsdada dadad adadad adadad</p>
+        <p class="subtitle">Get rewarded for your participation in eco-friendly events and challenges. </p>
         <div class="row-buttons">
             <button class="rewards">View rewards</button>
             <button class="intro">Get started</button>
         </div>
     </div>
     <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-tree-planting-illustration_23-2149210052.jpg" alt="">
+    <div class="row-stats">
+        <div class="stat-box">
+            <img src="https://www.svgrepo.com/show/27743/tree.svg" alt="">
+            <div class="stats-data">
+                <div class="stats-num">120</div>
+                <div class="stats-text">Trees Planted Today</div>
+            </div>
+        </div>
+        <div class="stat-box">
+            <img src="https://www.svgrepo.com/show/190867/co2.svg" alt="">
+            <div class="stats-data">
+                <div class="stats-num">80</div>
+                <div class="stats-text">CO2 Saved (kg)</div>
+            </div>
+        </div>
+    </div>
 </div>
 <p class="section-title">Daily articles</p>
 <div class="articles-section">
@@ -21,6 +37,6 @@
 <p class="section-title">Trending events</p>
 <div class="events-section">
     @for (item of numbers; track $index) {
-        <app-event-card [date]="dates[$index]" [event]="events[item]" [routerLink]="['/events', item]"></app-event-card>
+        <app-event-card [people]="peoples[$index]" [date]="dates[$index]" [event]="events[item]" [routerLink]="['/events', item]"></app-event-card>
     }
 </div>

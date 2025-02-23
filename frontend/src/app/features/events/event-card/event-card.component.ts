@@ -14,6 +14,7 @@ import { DateToObjectPipe } from "../../../core/pipes/date-to-object.pipe";
 export class EventCardComponent{
   @Input() event: any;
   @Input() date: any;
+  @Input() people: any;
   joined: boolean = false;
 
   constructor(private eventService: EventsService) {}

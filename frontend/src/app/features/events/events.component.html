@@ -33,7 +33,7 @@
 <p class="result-counter">{{ filteredEvents.length }} results:</p>
 <div class="events-grid">
   @for (event of filteredEvents; track $index) {
-    <app-event-card [date]="dates[$index]" [event]="event" [routerLink]="['/events', event.id]"></app-event-card>
+    <app-event-card [people]="numbers[$index]" [date]="dates[$index]" [event]="event" [routerLink]="['/events', event.id]"></app-event-card>
 
   }
 

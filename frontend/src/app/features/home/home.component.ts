@@ -35,6 +35,7 @@ export class HomeComponent {
     {category: 'Clean Energy', title: 'Renewable Energy: A Path Forward', author: 'By Alex Brown'}
 
   ]
+  peoples: number[] = [40,50,100,10,40,40,10,20];
   
   constructor(private dialog: MatDialog,private eventService: EventsService, private openQuizService: OpenQuizService){
 

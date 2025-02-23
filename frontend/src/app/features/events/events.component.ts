@@ -30,6 +30,7 @@ export class EventsComponent {
     {day:17, month: 'Jun', hours: '12'},
     {day:15, month: 'Jul', hours: '10'}
   ]
+  numbers: number[] = [40,50,100,10,40,40,10,20];
 
   filterForm: FormGroup;
 

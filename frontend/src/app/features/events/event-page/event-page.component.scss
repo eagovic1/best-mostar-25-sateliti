@@ -96,8 +96,101 @@
                   .join-event.joined:hover {
                     background-color: #218838; /* Darker green on hover */
                   }
+
                 
             }
+            .co2-container {
+                margin-top: 20px;
+                background: linear-gradient(135deg, #1a3c60, #0f2635);
+                padding: 20px;
+                border-radius: 16px;
+                width: 450px;
+                color: white;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            
+                .co2-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+            
+                    .co2-reduction {
+                        font-size: 48px;
+                        font-weight: bold;
+                        color: #7cb0e4;
+                    }
+            
+                    .co2-badge {
+                        background: white;
+                        color: #1a3c60;
+                        font-weight: bold;
+                        padding: 4px 10px;
+                        border-radius: 50px;
+                        font-size: 14px;
+                    }
+            
+                    .co2-title {
+                        border: 2px solid rgba(255, 255, 255, 0.5);
+                        padding: 8px 16px;
+                        border-radius: 30px;
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                }
+            
+                .co2-progress {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 16px 0;
+            
+                    .target-text {
+                        font-size: 14px;
+                        opacity: 0.8;
+                    }
+            
+                    .progress-bar {
+                        flex-grow: 1;
+                        height: 8px;
+                        background: rgba(255, 255, 255, 0.3);
+                        border-radius: 10px;
+                        margin: 0 12px;
+                        overflow: hidden;
+                        position: relative;
+            
+                        .progress-fill {
+                            height: 100%;
+                            background: #7cb0e4;
+                            border-radius: 10px;
+                        }
+            
+                        .gain-fill {
+                            height: 100%;
+                            background: #ff8c00;
+                            border-radius: 10px;
+                        }
+                    }
+            
+                    .achieved-text {
+                        font-size: 14px;
+                        opacity: 0.8;
+                    }
+                }
+            
+                .co2-footer {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 12px;
+            
+                    .co2-status {
+                        font-size: 14px;
+                        opacity: 0.8;
+                    }
+                }
+            }
+            
+            
+            
             
         }
         .info {
