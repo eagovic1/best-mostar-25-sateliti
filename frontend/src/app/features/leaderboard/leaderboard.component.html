@@ -18,25 +18,24 @@
         </form>
     -->
     <!--<p-select [options]="options" [(ngModel)]="selectedOption" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />-->
-        <div class="dropdown">
-            <!--<label for="options">Choose an option:</label>-->
-            <select id="options" [(ngModel)]="selectedOption" name="options">
-            <option *ngFor="let option of options" [value]="option.value">
-                {{ option.label }}
-            </option>
-            </select>
+        
+        <div class="organisation-item">
+            <p>Global</p>
         </div>
         <div class="organisation-item">
+            <p>Bosnia and Herzegovina</p>
+        </div>
+        <div class="active organisation-item">
             <p>Isatis Software Solutions</p>
         </div>
         <div class="organisation-item">
-            <p>Isatis Software Solutions</p>
-        </div>
-        <div class="organisation-item">
-            <p>Isatis Software Solutions</p>
+            <p>ETF</p>
         </div>
     </div>
     <div class="leaderboard-table">
+        <div class="leaderboard-head">
+            <p class="org-name">Isatis Software Solutions</p>
+        </div>
         <div class="leaderboard-headrow">
             <div class="col1">
                 <p>Rank</p>
@@ -49,14 +48,20 @@
             </div>
         </div>
         @for (member of members; track $index) {
-            <div class="leaderboard-row">
+            <div [ngClass]="{
+                'first-place': $index === 0,
+                'second-place': $index === 1,
+                'third-place': $index === 2
+              }" class="leaderboard-row">
                 <div class="col1">
                     <div class="position-div">
                         <p>{{member.position}}</p>
                     </div>
                 </div>
                 <div class="col2">
-                    <div class="member-img"></div>
+                    <div class="member-img">
+                        <img src="https://png.pngtree.com/png-vector/20220817/ourmid/pngtree-man-avatar-with-circle-frame-vector-ilustration-png-image_6110328.png" alt="">
+                    </div>
                     <p class="member-name">{{member.name}}</p>
                 </div>
                 <div class="col3">

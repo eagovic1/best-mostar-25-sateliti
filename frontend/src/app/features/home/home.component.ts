@@ -5,6 +5,7 @@ import { QuizComponent } from '../quiz/quiz.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
 import { EventsService } from '../../core/services/api/events.service';
+import { OpenQuizService } from '../../core/services/open-quiz.service';
 
 @Component({
   selector: 'app-home',
@@ -17,13 +18,12 @@ export class HomeComponent {
   numbers: number[]=[2,3,4,5]
   events: any[] = [];
   
-  constructor(private dialog: MatDialog,private eventService: EventsService){
+  constructor(private dialog: MatDialog,private eventService: EventsService, private openQuizService: OpenQuizService){
 
   }
+  
   openQuiz(): void {
-    const dialogRef = this.dialog.open(QuizComponent, {
-
-    });
+    this.openQuizService.openQuiz();
   }
 
   ngOnInit(): void {

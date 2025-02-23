@@ -1,26 +1,51 @@
+<div *ngIf="quizState === 'start'" class="quiz-start-screen">
+    <div class="quiz-intro">
+        <h1>🌍 Daily Quiz</h1>
+        <p>Test your knowledge and earn XP!</p>
+        
+        <button class="start-btn" (click)="startQuiz()">Start Quiz</button>
+    </div>
+</div>
+
+  <div *ngIf="quizState === 'playing'" class="quiz-window">
 <div class="quiz-header">
-    <p class="quiz-title">Predavanje 1 kviz</p>
+    <p class="quiz-title">Daily quiz</p>
 
 </div>
 <div class="quiz-window">
-    <p class="quiz-question">Koji je motiv za izučavanje vještačkih neuronskih mreža?</p>
+    <p class="quiz-count">{{ currentQuestionIndex + 1 }}/{{ questions.length }}</p>
+    <p class="quiz-question">{{ questions[currentQuestionIndex].question }}</p>
     <div class="answers-grid">
-        <div class="answer">
-            <p>Automatizacija</p>
-        </div>
-        <div class="answer">
-            <p>Brzina</p>
-        </div>
-        <div class="answer">
-            <p>Isplativost</p>
-        </div>
-        <div class="answer">
-            <p>Potreba</p>
+        <div 
+            class="answer" 
+            *ngFor="let answer of questions[currentQuestionIndex].answers; let i = index"
+            (click)="selectAnswer(i)"
+            [ngClass]="{ 'selected': selectedAnswerIndex === i }">
+            <p>{{ answer }}</p>
         </div>
     </div>
     <div class="quiz-nav">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3l128-128c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 256c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-128-128z"/></svg>
-        <p>1/25</p>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+        
+        <button class="next" *ngIf="selectedAnswerIndex !== null" (click)="nextQuestion()">Next</button>
+    </div>
+</div>
+</div>
+<!-- End Screen
+<div *ngIf="quizState === 'end'" class="end-screen">
+    <p>Quiz Completed!</p>
+    <p>Your Score: {{ score }} / {{ questions.length }}</p>
+    <button (click)="closeQuiz()">Close Quiz</button>
+  </div>-->
+
+  <div class="quiz-end-screen" *ngIf="quizFinished">
+    <p class="quiz-finished-text">🎉 Quiz Completed! 🎉</p>
+    <p class="quiz-score">Score: {{ score }}/{{ questions.length }}</p>
+
+    <!-- XP Bar -->
+    <div class="xp-bar-container">
+        <p class="xp-text">XP Earned: {{ xp }}</p>
+        <div class="xp-bar">
+            <div class="xp-fill" [style.width.%]="(xp / (questions.length * 10)) * 100"></div>
+        </div>
     </div>
 </div>

@@ -2,11 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { EventsService } from '../../../core/services/api/events.service';
 import { DateTimeModel } from '../../../core/models/date-time-model';
 import { CommonModule } from '@angular/common';
+import { DateToObjectPipe } from "../../../core/pipes/date-to-object.pipe";
 
 @Component({
   selector: 'app-event-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, DateToObjectPipe],
   templateUrl: './event-card.component.html',
   styleUrl: './event-card.component.scss'
 })

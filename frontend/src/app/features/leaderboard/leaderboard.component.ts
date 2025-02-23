@@ -15,14 +15,14 @@ import { CommonModule } from '@angular/common';
 })
 export class LeaderboardComponent implements OnInit{
   members = [
-    {position: 1, name: "Edis Jasarevic", points: 51},
-    {position: 2, name: "Edis Jasarevic", points: 51},
-    {position: 3, name: "Edis Jasarevic", points: 51},
-    {position: 4, name: "Edis Jasarevic", points: 51},
-    {position: 5, name: "Edis Jasarevic", points: 51},
-    {position: 6, name: "Edis Jasarevic", points: 51},
-    {position: 7, name: "Edis Jasarevic", points: 51},
-    {position: 8, name: "Edis Jasarevic", points: 51}
+    {position: 1, name: "Emir Agovic", points: 51},
+    {position: 2, name: "Edis Jasarevic", points: 48},
+    {position: 3, name: "Benjamin Uzunovic", points: 37},
+    {position: 4, name: "Ahmed Ljubuncic", points: 36},
+    {position: 5, name: "Mersid Pilipovic", points: 32},
+    {position: 6, name: "Elvir Vlahovljak", points: 28},
+    {position: 7, name: "Burhan Ljubovic", points: 27},
+    {position: 8, name: "Irhad Topovcic", points: 26}
   ]
 
   constructor(private openJoinLeaderboardService: OpenJoinLeaderboardService) {

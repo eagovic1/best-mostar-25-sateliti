@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(BrowserModule),
     provideAnimations(),
     provideRouter(routes),
-    provideHttpClient(withFetch()), provideAnimationsAsync(), provideAnimationsAsync(),
+    provideHttpClient(withFetch()), provideAnimationsAsync(), provideAnimationsAsync(), provideAnimationsAsync(), provideAnimationsAsync(),
     /*
     providePrimeNG({
       theme: {

@@ -1,6 +1,6 @@
 :host {
     width: calc(100% - 200px);
-    min-height: calc(100vh - 60px);
+    //min-height: calc(100vh - 60px);
     margin-top: 60px;
     margin-left: 200px;
     //background-color: rgb(231, 236, 236);
@@ -108,15 +108,21 @@
                 width: 100%;
                 height: 50px;
                 display: flex;
-                border: 1px solid rgb(165, 165, 165);
-                background-color: #e4bdff;
+                border: 1px solid rgb(230, 228, 228);
+                background-color: #d69cff;
+                color: rgb(55, 53, 53);
                 p {
                     margin-left: 10px;
-                    color: rgb(94, 92, 101);
+                    color: rgb(83, 80, 95);
                 }
             }
+            .active {
+                background-color: #e5c1ff;
+                border: 2px solid rgb(108, 56, 95);
+                border-radius: 3px;
+            }
             .organisation-item:hover {
-                background-color: rgb(238, 211, 255);
+                background-color: rgb(249, 238, 255);
             }
             
         }
@@ -130,8 +136,13 @@
             color: white;
             .leaderboard-head {
                 display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 100%;
-                height: 50px;
+                height: 60px;
+                .org-name {
+                    font-size: 25px;
+                }
             }
             .leaderboard-headrow {
                 display: flex;
@@ -172,7 +183,7 @@
                     .position-div {
                         width: 40px;
                         height: 40px;
-                        background-color: orange;
+                        
                         border-radius: 8px;
                         display: flex;
                         align-items: center;
@@ -203,12 +214,38 @@
                     align-items: center;
                     .points {
                         font-size: 18px;
-                        color: rgb(255, 105, 105);
+                        color: rgb(245, 125, 125);
                         font-weight: bolder;
                     }
                     img {
                         width: 25px;
                         height: 25px;
+                    }
+                }
+            }
+            .leaderboard-row:hover {
+                background-color: rgb(183, 147, 255);
+                cursor: pointer;
+            }
+            .first-place {
+                .col1 {
+                    .position-div {
+                        background-color: orange;
+                    }
+                }
+            }
+
+            .second-place {
+                .col1 {
+                    .position-div {
+                        background-color: rgb(155, 155, 152);
+                    }
+                }
+            }
+            .third-place {
+                .col1 {
+                    .position-div {
+                        background-color: rgb(245, 215, 159);
                     }
                 }
             }
