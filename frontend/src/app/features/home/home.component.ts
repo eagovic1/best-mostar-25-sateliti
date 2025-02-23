@@ -17,6 +17,24 @@ import { OpenQuizService } from '../../core/services/open-quiz.service';
 export class HomeComponent {
   numbers: number[]=[2,3,4,5]
   events: any[] = [];
+  dates: any[] = [
+    {day:15, month: 'Mar', hours: '10'},
+    {day:20, month: 'Mar', hours: '09'},
+    {day:17, month: 'Apr', hours: '10'},
+    {day:28, month: 'Apr', hours: '10'},
+    {day:14, month: 'May', hours: '11'},
+    {day:17, month: 'Jun', hours: '10'},
+    {day:17, month: 'Jun', hours: '12'},
+    {day:15, month: 'Jul', hours: '10'}
+  ]
+
+  articles: any[] = [
+    {category: 'Ecology', title: 'The Fight Against Climate Change', author: 'By Jane Smith'},
+    {category: 'Global Warming', title: 'Global Warming: Myth or Reality?', author: 'By Mark Johnson'},
+    {category: 'Sustainability', title: 'The CO₂ Crisis and Our Future', author: 'By Sarah Green'},
+    {category: 'Clean Energy', title: 'Renewable Energy: A Path Forward', author: 'By Alex Brown'}
+
+  ]
   
   constructor(private dialog: MatDialog,private eventService: EventsService, private openQuizService: OpenQuizService){
 

@@ -12,15 +12,15 @@
 </div>
 <p class="section-title">Daily articles</p>
 <div class="articles-section">
-    <app-article-card></app-article-card>
-    <app-article-card></app-article-card>
-    <app-article-card></app-article-card>
-    <app-article-card></app-article-card>
+    @for (item of articles; track $index) {
+        <app-article-card [data]="articles[$index]"></app-article-card>
+    }
+
 </div>
 <button (click)="openQuiz()" class="quiz">Attempt quiz</button>
 <p class="section-title">Trending events</p>
 <div class="events-section">
     @for (item of numbers; track $index) {
-        <app-event-card [event]="events[item]" [routerLink]="['/events', item]"></app-event-card>
+        <app-event-card [date]="dates[$index]" [event]="events[item]" [routerLink]="['/events', item]"></app-event-card>
     }
 </div>

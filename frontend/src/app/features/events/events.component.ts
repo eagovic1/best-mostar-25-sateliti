@@ -20,6 +20,16 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class EventsComponent {
   events: any[] = [];
   filteredEvents: any[] = [];
+  dates: any[] = [
+    {day:15, month: 'Mar', hours: '10'},
+    {day:20, month: 'Mar', hours: '09'},
+    {day:17, month: 'Apr', hours: '10'},
+    {day:28, month: 'Apr', hours: '10'},
+    {day:14, month: 'May', hours: '11'},
+    {day:17, month: 'Jun', hours: '10'},
+    {day:17, month: 'Jun', hours: '12'},
+    {day:15, month: 'Jul', hours: '10'}
+  ]
 
   filterForm: FormGroup;
 

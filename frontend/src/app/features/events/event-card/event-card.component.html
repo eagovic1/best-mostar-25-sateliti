@@ -1,14 +1,15 @@
 <div class="image-container">
-    <img src="https://static.hercegovina.info/img/repository/2024/11/image_640x396/posumljavanje-fortice.jpg" class="img-container">
+    <!--<img src="https://static.hercegovina.info/img/repository/2024/11/image_640x396/posumljavanje-fortice.jpg" class="img-container">-->
+    <img src="https://img.freepik.com/free-vector/small-plant-design_1133-110.jpg" alt="">
 </div>
 
 <div class="info-container">
     <div class="wrapper-date">
-        <span class="day">20</span>
-        <span class="month">Jun</span>
+        <span class="day">{{date.day}}</span>
+        <span class="month">{{date.month}}</span>
     </div>
     <p class="event-name">{{event.name}}</p>
-    <span>{{event.location}} ・ 10:00 AM </span>
+    <span>{{event.location}} ・ {{date.hours}}:00 AM </span>
 
     <div class="wrapper">
         <div class="portrait"></div>

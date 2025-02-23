@@ -6,6 +6,7 @@
     height: 300px;
     border-radius: 10px;
     align-items: center;
+    cursor: pointer;
     .blog-image-container {
         width: 280px;
         height:150px;
@@ -16,11 +17,11 @@
         background-size: 80%;
     }
     .blog-data {
-        margin-left: 20px;
+        padding-left: 20px;
         display: flex;
         flex-direction: column;
         height: 150px;
-        width: 100%;
+        width: calc(100% - 20px);
         .blog-title {
             margin-top: 5px;
             font-size: 20px;
@@ -45,5 +46,8 @@
         }
     }
 
+}
+:hover {
+    background-color: rgb(255, 237, 255);
 }
 

@@ -7,13 +7,13 @@ import { DateToObjectPipe } from "../../../core/pipes/date-to-object.pipe";
 @Component({
   selector: 'app-event-card',
   standalone: true,
-  imports: [CommonModule, DateToObjectPipe],
+  imports: [CommonModule],
   templateUrl: './event-card.component.html',
   styleUrl: './event-card.component.scss'
 })
 export class EventCardComponent{
   @Input() event: any;
-  date!: DateTimeModel;
+  @Input() date: any;
   joined: boolean = false;
 
   constructor(private eventService: EventsService) {}
