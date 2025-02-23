@@ -26,18 +26,19 @@ ng serve
 ## Funtionalities
 
 ### Creating Events
-As a Company, you can create volunteering events providing location, image, date, description, min. and max. volunteers needed, default and random prizes, etc. By default, event is active, but company can tag it as completed or canceled.
+- As a Company, you can create volunteering events by providing location, image, date, description, min. and max. volunteers needed, default and random prizes, etc.
+- By default, event is active, but company can tag it as completed or canceled.
 
 ### Joining Event
-As a Volunteer, you can join and leave different events.
+- As a Volunteer, you can join and leave different events.
 
 #### Prizes 
-By joining events you are eligible to receive a default prize defined by the company
-There are also potential random prizes. The more your event streak is bigger, the higher is possibility to win the prize.
+- By joining events, you are eligible to receive a default prize defined by the company.
+- There are also potential random prizes. The bigger your event streak, the higher the chance of winning a prize.
 
 ### Scoreboards
-By completing events you will form a streak and earn points.
-The best volunteers in your city/region/country will receive monthly/yearly prizes.
+- By completing events, you build a streak and earn points.
+- Top volunteers in your city, region, or country will receive monthly and yearly prizes.
 
 ### Daily Challenges
-If the volunteering community is inactive in your region, we will still provide daily challenges, which you can complete to gain level experience and rewards.
+- Even if the volunteering community is inactive in your region, you can stay engaged with daily challenges to boost your streak, gain experience, and earn extra rewards.
